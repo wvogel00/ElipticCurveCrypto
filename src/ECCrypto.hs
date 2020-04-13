@@ -80,8 +80,8 @@ defaultECCrypto = ECCrypto{x = toRing 10 defaultN, y = toRing 13 defaultN, curve
 type SecretKey :: Integer
 secretkey_b = 6 :: SecretKey
 
-makeInterOperator :: ECCrypto -> SecretKey -> (ResidueRingInteger, ResidueRingInteger)
-makeInterOperator eccrrypto = takePos.fromJust.snd.foldl multiplyOnEC (eccrrypto,Nothing) . toBin
+makeInterOperator :: ECCrypto -> SecretKey -> ECCrypto
+makeInterOperator eccrrypto = fromJust.snd.foldl multiplyOnEC (eccrrypto,Nothing) . toBin
 
 _B = makeInterOperator defaultECCrypto secretkey_b
 
