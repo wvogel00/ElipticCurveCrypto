@@ -73,6 +73,7 @@ showPolynomial (a,b,c,d) = concat.map f $ zip (map getv [a,b,c,d]) [3,2,1,0] whe
 -----------------------------------------------------------------
 
 defaultN = 31
+defaultRank = 41
 defaultEC = (toRing 1 defaultN, toRing 0 defaultN, toRing 2 defaultN, toRing 17 defaultN)
 defaultECCrypto = ECCrypto{x = toRing 10 defaultN, y = toRing 13 defaultN, curve = defaultEC}
 
@@ -81,6 +82,7 @@ secretkey_b = 6 :: SecretKey
 
 default_B = multiplyOnEC defaultECCrypto secretkey_b
 
+type Rank = Integer
 type PublicKey = (ECCrypto, ECCrypto)
 defaultPublickey = (defaultECCrypto, default_B) :: PublicKey
 
@@ -97,13 +99,13 @@ toBin n = mod n 2 : toBin (div n 2)
 
 takePos eccrypto = (x eccrypto, y eccrypto)
 
-encrypto :: PublicKey -> SecretKey -> [Integer] -> (ECCrypto, [Integer])
-encrypto (_P,bP) secretkey message = (aP, map encrypto' message) where
-	encrypto' = flip mod 41 . ( + (getv $ x abP))
+encrypto :: PublicKey -> Rank -> SecretKey -> [Integer] -> (ECCrypto, [Integer])
+encrypto (_P,bP) rank secretkey message = (aP, map encrypto' message) where
+	encrypto' = flip mod rank.( + (getv $ x abP))
 	aP = multiplyOnEC _P secretkey
 	abP = multiplyOnEC bP secretkey
 
-decrypto :: (ECCrypto, [Integer]) -> [Integer]
-decrypto (aP, message) = map decrypto' message where
-	decrypto' m = (m - (getv $ x abP)) `mod` 41
+decrypto :: (ECCrypto, [Integer]) -> Rank -> [Integer]
+decrypto (aP, message) rank = map decrypto' message where
+	decrypto' m = (m - (getv $ x abP)) `mod` rank
 	abP = multiplyOnEC aP secretkey_b
