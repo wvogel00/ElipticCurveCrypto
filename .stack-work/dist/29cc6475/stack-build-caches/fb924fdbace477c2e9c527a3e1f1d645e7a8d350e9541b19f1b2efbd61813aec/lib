@@ -1,19 +1,15 @@
 C:\Users\eagle\Documents\haskell\ElipticCurveCrypto\ElipticCurveCrypto.cabal:
   hash: 9d38acfa17dbd54b423dc712138da7d17fd3c43dd480fd38741efaaaccd42eeb
   size: 1675
-  modtime: 1586702574
-C:\Users\eagle\Documents\haskell\ElipticCurveCrypto\ChangeLog.md:
-  hash: 81acd1203cfdea0f1f3d1a40c03c324dec7ca295c831faf5cd58f996062a7a0c
-  size: 58
-  modtime: 1586696880
+  modtime: 1586702976
 C:\Users\eagle\Documents\haskell\ElipticCurveCrypto\README.md:
-  hash: d975a3298e2bb12f3467552ab821341b1510aadd0b27e6462653b1011a6fa257
-  size: 21
-  modtime: 1586696880
+  hash: cb73fe78db6c737afb8ea4d506beb70282fa6c5d22b84f45b38944f4c5d77acf
+  size: 195
+  modtime: 1586704397
 C:\Users\eagle\Documents\haskell\ElipticCurveCrypto\src\ECCrypto.hs:
-  hash: 32bd817691f4fb923f788be786ce87d2eaf298b51fd1a4f0920c16ae8161c3ac
-  size: 1827
-  modtime: 1586702660
+  hash: 72bbce434fdddfec2cea05182531690cb0f479b145248af24cea831e10d2f7ad
+  size: 4154
+  modtime: 1586849469
 C:\Users\eagle\Documents\haskell\ElipticCurveCrypto\package.yaml:
   hash: 10a1f0d3960b8f111b074b7128e4ff4784641bf261cafa0568ce080d04dde0be
   size: 1247

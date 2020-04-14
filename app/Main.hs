@@ -1,10 +1,15 @@
 module Main where
 
 import ECCrypto
-import Data.ByteString.Char8 as BS
+import Data.Char (chr, ord)
+
+secretkey_a = 15
 
 main :: IO ()
 main = do
-	BS.putStrLn $ BS.pack "encrypto ::---->"
-	str <- BS.getLine
-	BS.putStrLn $ encrypto str
+  putStrLn "encrypto ::---->"
+  n <- getLine
+  let encoded = encrypto defaultPublickey secretkey_a.map read.words $ n
+  putStrLn $ "encrypto :=" ++ (concat.map show $ snd encoded)
+  let decodedStr = decrypto encoded
+  putStrLn $ "encrypto :=" ++ (concat.map show $ decodedStr)
